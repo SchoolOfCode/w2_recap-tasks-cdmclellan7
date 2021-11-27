@@ -17,10 +17,16 @@ function addItemToList() {
     const newLi = document.createElement('li');
     newLi.innerText = newLiText(currentInput, currentPriority);
     list.appendChild(newLi);
+    resetInputs();
 }
 
 function newLiText(text, priority) {
     return `${text}, Priority: ${priority}`;
+}
+
+function resetInputs() {
+    inputField.value = "";
+    priorityInput.value = 0;
 }
 
 const orderButton = document.querySelector("#order-list");
