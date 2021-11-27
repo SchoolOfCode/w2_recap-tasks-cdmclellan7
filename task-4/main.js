@@ -19,4 +19,10 @@ function addItemToList() {
     list.appendChild(newLi);
 }
 
+const orderButton = document.querySelector("#order-list");
+orderButton.addEventListener("click", orderList);
 
+function orderList() {
+    importantThings.sort((a, b) => b.priority - a.priority);
+    console.log(importantThings);
+}
