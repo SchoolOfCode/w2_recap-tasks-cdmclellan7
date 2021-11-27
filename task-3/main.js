@@ -12,3 +12,6 @@ function setImage(url) {
 }
 
 fetchCat();
+
+const newCatButton = document.querySelector("#new-cat-button");
+newCatButton.addEventListener("click", fetchCat);
