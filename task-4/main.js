@@ -15,8 +15,12 @@ function addItemToList() {
     const currentItem = {text: currentInput, priority: currentPriority};
     importantThings.push(currentItem);
     const newLi = document.createElement('li');
-    newLi.innerText = `${currentInput}, Priority: ${currentPriority}`;
+    newLi.innerText = newLiText(currentInput, currentPriority);
     list.appendChild(newLi);
+}
+
+function newLiText(text, priority) {
+    return `${text}, Priority: ${priority}`;
 }
 
 const orderButton = document.querySelector("#order-list");
@@ -26,12 +30,11 @@ function orderList() {
     importantThings.sort((a, b) => b.priority - a.priority);
 
     importantThings.forEach((item, index) => {
-        let newLi = document.createElement('li');
-        newLi.innerText = `${item.text}, Priority: ${item.priority}`;
+        const newLi = document.createElement('li');
+        newLi.innerText = newLiText(item.text, item.priority);
 
-        let listChildren = list.children;
-        let currentLi = listChildren.item(index);
+        const listChildren = list.children;
+        const currentLi = listChildren.item(index);
         list.replaceChild(newLi, currentLi);
-    });
-    
+    });    
 }
