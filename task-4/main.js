@@ -8,11 +8,13 @@ const priorityInput = document.querySelector("#priority-input");
 addButton.addEventListener("click", addItemToList);
 
 function addItemToList() {
-    const currentItem = {text: inputField.value, priority: priorityInput.value};
-    importantThings.push(currentItem);
-    const newLi = document.createElement('li');
-    newLi.innerText = newLiText(inputField.value, priorityInput.value);
-    list.appendChild(newLi);
+    if (inputField.value.trim() !== "") {
+        const currentItem = {text: inputField.value, priority: priorityInput.value};
+        importantThings.push(currentItem);
+        const newLi = document.createElement('li');
+        newLi.innerText = newLiText(inputField.value, priorityInput.value);
+        list.appendChild(newLi);
+    }
     resetInputs();
 }
 
