@@ -24,5 +24,14 @@ orderButton.addEventListener("click", orderList);
 
 function orderList() {
     importantThings.sort((a, b) => b.priority - a.priority);
-    console.log(importantThings);
+
+    importantThings.forEach((item, index) => {
+        let newLi = document.createElement('li');
+        newLi.innerText = `${item.text}, Priority: ${item.priority}`;
+
+        let listChildren = list.children;
+        let currentLi = listChildren.item(index);
+        list.replaceChild(newLi, currentLi);
+    });
+    
 }
