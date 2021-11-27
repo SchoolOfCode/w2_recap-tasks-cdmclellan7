@@ -30,11 +30,13 @@ function orderList() {
     importantThings.sort((a, b) => b.priority - a.priority);
 
     importantThings.forEach((item, index) => {
+        //create new li 
         const newLi = document.createElement('li');
         newLi.innerText = newLiText(item.text, item.priority);
-
+        //get the current li at the same index
         const listChildren = list.children;
         const currentLi = listChildren.item(index);
+        //swap the current li for the new li
         list.replaceChild(newLi, currentLi);
     });    
 }
