@@ -6,4 +6,14 @@ function incrementCounter() {
     counterP.innerText = count;
 }
 
-setInterval(incrementCounter, 1000);
+let intervalID = setInterval(incrementCounter, 1000);
+
+function stopCounter() {
+    clearInterval(intervalID);
+}
+
+setTimeout(stopCounter, 12000);
+
+/* setTimeout using arrow function 
+setTimeout( () => clearInterval(intervalID), 12000);
+*/
